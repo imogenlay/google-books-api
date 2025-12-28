@@ -19,7 +19,7 @@
 .title {
   display: inline;
   color: g.$clr-orange-blaze;
-  font-size: 4rem;
+  font-size: clamp(2rem, 11vw, 4rem);
   line-height: 1;
 
   &::selection {
@@ -54,7 +54,7 @@
 
   input {
     flex: 1;
-    min-width: 1rem;
+    width: 0;
 
     &:focus {
       box-shadow: 0 0 4px g.$clr-orange-blaze;

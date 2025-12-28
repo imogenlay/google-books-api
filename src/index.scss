@@ -32,7 +32,15 @@
 html {
   width: 100vw;
   height: 100%;
-  background-color: g.$clr-white;
+
+  --inset: calc((100vw - var(--main-width)) * 0.5);
+  background: linear-gradient(
+    90deg,
+    g.$clr-orange-background 0%,
+    g.$clr-white var(--inset),
+    g.$clr-white calc(100% - var(--inset)),
+    g.$clr-orange-background 100%
+  );
 }
 
 body {
