@@ -8,21 +8,16 @@ Uses:
 - SASS
 - Asynchronous programming
 
-## MVP
+## Usage
 
-Create a page that allows users to search for books
-Page should include the following:
+The page contains a few elements.
 
 - Header section introducing the page
-- Form containing a text input and a submit / search button
-
-- A grid of books
-  Instructions:
-
-- When the submit button is clicked you need the request books from the Google books API using the input value as your query string
-- The books that you receive should be rendered in the books grid.
-- Each book in the grid should have an image, author, title and description
-- The grid should be responsive on different screen sizes
+- Form containing a text input and a search button
+- When the search button is clicked, the value from the input is used to search the Google Books API with the user's query string
+- A grid of books displays what is received from the API
+- Each book has an image, title, author and description
+- The grid is responsive on different screen sizes
 
 Styling (required):
 
