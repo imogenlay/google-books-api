@@ -1,6 +1,6 @@
 import Book from "../Book/Book";
 import classes from "./book_list.module.scss";
-import { getVolumes } from "./user";
+import { getBooks } from "./bookList";
 import { useState, useEffect } from "react";
 
 export default function BookList() {
@@ -9,7 +9,7 @@ export default function BookList() {
 
   useEffect(() => {
     setFetchStatus("LOADING");
-    getVolumes()
+    getBooks()
       .then((data) => {
         setSearchResults(data);
         setFetchStatus("FULFILLED");
@@ -25,15 +25,10 @@ export default function BookList() {
       {fetchStatus === "LOADING" && <div> {"LOADING atm"} </div>}
       {fetchStatus === "FULFILLED" && (
         <div className={classes.book_list}>
-          {searchResults.map((b) => (
-            <Book
-              key={b.id}
-              title={b.title}
-              authors={b.authors}
-              description={b.description}
-              image={b.image}
-            />
-          ))}
+          {searchResults.map((b) => {
+            const { id, ...book } = b;
+            return <Book key={b.id} book={book} />;
+          })}
         </div>
       )}
       {fetchStatus === "FAILED" && <div> {"error whhopsie"} </div>}

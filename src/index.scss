@@ -17,7 +17,7 @@
   font-synthesis: none;
   font-size: 1rem;
 
-  color: g.$clr-dark-blue;
+  color: g.$clr-blue-dark;
   line-height: 1.5;
   text-decoration: none;
 
@@ -25,7 +25,7 @@
   scroll-behavior: smooth;
 
   &::selection {
-    background-color: g.$clr-light-blue;
+    background-color: g.$clr-blue-light;
   }
 }
 
@@ -36,8 +36,8 @@ html {
   background: linear-gradient(
     90deg,
     g.$clr-orange-background 0%,
-    g.$clr-white var(--inset),
-    g.$clr-white calc(100% - var(--inset)),
+    g.$clr-white max(3rem, var(--inset)),
+    g.$clr-white calc(100% - max(3rem, var(--inset))),
     g.$clr-orange-background 100%
   );
 }
@@ -47,7 +47,6 @@ body {
 }
 
 #root {
-  box-shadow: inset 0 0 0 1px orange;
   min-height: 100vh;
   @include mixins.flex(column, flex-start, center, 0);
 }

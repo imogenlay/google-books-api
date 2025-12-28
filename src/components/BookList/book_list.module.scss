@@ -2,11 +2,11 @@
 @use "../../sass/mixins";
 
 .book_list {
-  @include mixins.flex(row, center, flex-start, 1rem 0);
+  @include mixins.flex(row, center, flex-start, 0.5rem 0);
   flex-wrap: wrap;
   width: var(--main-width);
 
-  padding: 1rem 0;
-  background-color: g.$clr-white;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
   overflow: visible;
 }

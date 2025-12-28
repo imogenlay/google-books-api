@@ -15,39 +15,32 @@
 
   cursor: pointer;
   padding: 0.25rem 0.25rem 0 0.25rem;
-  background-color: g.$clr-white;
+  background-color: transparent;
   overflow: hidden;
 
   transition: all 100ms ease-in-out;
-  border: 1px solid g.$clr-white;
   transform: scale(1);
 
   &:hover {
-    border-color: g.$clr-light-blue;
+    background-color: g.$clr-blue-faint;
     transform: scale(1.025);
     z-index: 1;
   }
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    background: linear-gradient(
-      180deg,
-      transparent calc(100% - 2rem),
-      g.$clr-white calc(100% - 0.5rem)
-    );
-  }
+  mask-image: linear-gradient(
+    to bottom,
+    black calc(100% - 3rem),
+    transparent calc(100% - 0.5rem)
+  );
 }
 
 .image_area {
   width: 100%;
   height: 60%;
   overflow: hidden;
-  border: 1px solid g.$clr-light-blue;
+  border: 1px solid g.$clr-blue-regular;
   flex-shrink: 0;
+  background-color: g.$clr-white;
 
   img {
     width: 100%;
@@ -78,12 +71,12 @@
 
   p {
     font-weight: 200;
-    color: g.$clr-blue;
+    color: g.$clr-blue-regular;
     font-size: clamp(0.9rem, 3vw, 1rem);
   }
 
   hr {
-    border: 1px solid g.$clr-light-blue;
+    border: 1px solid g.$clr-blue-light;
   }
 }
 

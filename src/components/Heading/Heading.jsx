@@ -13,7 +13,7 @@ export default function Heading() {
         </hgroup>
         <div className={classes.search_group}>
           <input />
-          <button>Search Books</button>
+          <button>Search</button>
         </div>
       </div>
     </header>

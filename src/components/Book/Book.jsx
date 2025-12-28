@@ -1,23 +1,23 @@
 import classes from "./book.module.scss";
 
-export default function Book({ title, authors, description, image }) {
+export default function Book({ book }) {
   // Generate title string.
-  let titleText = title;
-  const MAX_TITLE_LENGTH = 60;
-  if (title.length > MAX_TITLE_LENGTH)
-    titleText = title.substring(0, MAX_TITLE_LENGTH - 3) + "...";
+  let titleText = book.title;
+  const MAX_TITLE_LENGTH = 52;
+  if (titleText.length > MAX_TITLE_LENGTH)
+    titleText = titleText.substring(0, MAX_TITLE_LENGTH - 3) + "...";
 
   // Generate author/s string and description.
-  const authorText = authors.join(", ");
-  const descriptionText = description || "No description.";
+  const authorText = book.authors.join(", ");
+  const descriptionText = book.description || "No description.";
 
   // Generate image element.
-  const hasImage = image;
+  const hasImage = book.image;
 
   return (
     <div className={classes.main}>
       <div className={classes.image_area}>
-        {hasImage ? <img src={image} /> : <p>No image available</p>}
+        {hasImage ? <img src={book.image} /> : <p>No image available</p>}
       </div>
       <p className={classes.title}>{titleText}</p>
       <div className={classes.author}>
