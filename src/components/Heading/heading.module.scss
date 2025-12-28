@@ -5,7 +5,10 @@
 .background {
   width: 100vw;
   background-color: g.$clr-orange-background;
-  padding: 1.5rem calc((100vw - var(--main-width)) * 0.5);
+  padding-top: 1.5rem;
+  padding-left: var(--inset);
+  padding-right: var(--inset);
+  padding-bottom: 1.5rem;
 }
 
 .header_area {
@@ -19,7 +22,7 @@
 .title {
   display: inline;
   color: g.$clr-orange-blaze;
-  font-size: clamp(2rem, 11vw, 4rem);
+  font-size: clamp(2rem, 11.5vw, 4rem);
   line-height: 1;
 
   &::selection {
@@ -44,7 +47,7 @@
   button {
     border: 2px solid g.$clr-orange-regular;
     background-color: g.$clr-white;
-    padding: 2px;
+    padding: clamp(0px, 0.25vw, 2px);
 
     &:hover {
       border-color: g.$clr-orange-blaze;
@@ -64,6 +67,8 @@
 
   button {
     text-wrap: nowrap;
+    cursor: pointer;
+
     &:active {
       background-color: g.$clr-orange-selection;
     }

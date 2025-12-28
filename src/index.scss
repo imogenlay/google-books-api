@@ -33,7 +33,6 @@ html {
   width: 100vw;
   height: 100%;
 
-  --inset: calc((100vw - var(--main-width)) * 0.5);
   background: linear-gradient(
     90deg,
     g.$clr-orange-background 0%,
@@ -55,4 +54,5 @@ body {
 
 :root {
   --main-width: min(95vw, 80rem);
+  --inset: calc((100vw - var(--main-width)) * 0.5);
 }
