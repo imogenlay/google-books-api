@@ -31,7 +31,7 @@ export default function BookList() {
           })}
         </div>
       )}
-      {fetchStatus === "FAILED" && <div> {"error whhopsie"} </div>}
+      {fetchStatus === "FAILED" && <div> {"error whoopsie"} </div>}
     </>
   );
 }

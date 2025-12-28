@@ -36,8 +36,8 @@ html {
   background: linear-gradient(
     90deg,
     g.$clr-orange-background 0%,
-    g.$clr-white max(3rem, var(--inset)),
-    g.$clr-white calc(100% - max(3rem, var(--inset))),
+    g.$clr-white max(8rem, var(--inset)),
+    g.$clr-white calc(100% - max(8rem, var(--inset))),
     g.$clr-orange-background 100%
   );
 }
