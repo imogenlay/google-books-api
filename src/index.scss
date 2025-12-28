@@ -1,0 +1,50 @@
+@use "./sass/global" as g;
+@use "./sass/mixins";
+
+* {
+  /* UI Debug Border
+  box-shadow: inset 0px 0px 0px 1px red;
+  */
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-synthesis: none;
+  font-size: 1rem;
+
+  color: g.$clr-dark-blue;
+  line-height: 1.5;
+  text-decoration: none;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  &::selection {
+    background-color: g.$clr-light-blue;
+  }
+}
+
+html {
+  width: 100vw;
+  height: 100%;
+  background-color: g.$clr-white;
+}
+
+body {
+  width: 100vw;
+}
+
+#root {
+  box-shadow: inset 0 0 0 1px orange;
+  min-height: 100vh;
+  @include mixins.flex(column, flex-start, center, 0);
+}
+
+:root {
+  --main-width: min(95vw, 80rem);
+}

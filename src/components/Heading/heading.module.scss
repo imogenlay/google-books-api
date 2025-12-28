@@ -1,0 +1,71 @@
+@use "../../sass/global" as g;
+@use "../../sass/media-queries" as q;
+@use "../../sass/mixins";
+
+.background {
+  width: 100vw;
+  background-color: g.$clr-orange-background;
+  padding: 1.5rem calc((100vw - var(--main-width)) * 0.5);
+}
+
+.header_area {
+  display: inline-block;
+  hgroup {
+    display: inline-block;
+    overflow: visible;
+  }
+}
+
+.title {
+  display: inline;
+  color: g.$clr-orange-blaze;
+  font-size: 4rem;
+  line-height: 1;
+
+  &::selection {
+    background-color: g.$clr-orange-selection;
+  }
+}
+
+.title_a {
+  color: g.$clr-orange-regular;
+  font-weight: 300;
+}
+
+.title_b {
+  font-weight: 600;
+}
+
+.search_group {
+  @include mixins.flex(row, flex-start, flex-start, 0.5rem);
+  padding: 4px;
+
+  input,
+  button {
+    border: 2px solid g.$clr-orange-regular;
+    background-color: g.$clr-white;
+    padding: 2px;
+
+    &:hover {
+      border-color: g.$clr-orange-blaze;
+      box-shadow: 0 0 4px g.$clr-orange-blaze;
+    }
+  }
+
+  input {
+    flex: 1;
+    min-width: 1rem;
+
+    &:focus {
+      box-shadow: 0 0 4px g.$clr-orange-blaze;
+      outline: 0 none;
+    }
+  }
+
+  button {
+    text-wrap: nowrap;
+    &:active {
+      background-color: g.$clr-orange-selection;
+    }
+  }
+}
