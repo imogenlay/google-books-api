@@ -1,29 +1,12 @@
 import Book from "../Book/Book";
 import classes from "./book_list.module.scss";
-import { getBooks } from "./bookList";
-import { useState, useEffect } from "react";
+import { FETCH_STATUS } from "../../functionality/books";
 
-export default function BookList() {
-  const [searchResults, setSearchResults] = useState(null);
-  const [fetchStatus, setFetchStatus] = useState("PENDING");
-
-  useEffect(() => {
-    setFetchStatus("LOADING");
-    getBooks()
-      .then((data) => {
-        setSearchResults(data);
-        setFetchStatus("FULFILLED");
-      })
-      .catch((error) => {
-        console.error(error);
-        setFetchStatus("FAILED");
-      });
-  }, []);
-
+export default function BookList({ fetchStatus, searchResults }) {
   return (
     <>
-      {fetchStatus === "LOADING" && <div> {"LOADING atm"} </div>}
-      {fetchStatus === "FULFILLED" && (
+      {fetchStatus === FETCH_STATUS.loading && <div> {"LOADING atm"} </div>}
+      {fetchStatus === FETCH_STATUS.fulfilled && (
         <div className={classes.book_list}>
           {searchResults.map((b) => {
             const { id, ...book } = b;
@@ -31,7 +14,7 @@ export default function BookList() {
           })}
         </div>
       )}
-      {fetchStatus === "FAILED" && <div> {"error whoopsie"} </div>}
+      {fetchStatus === FETCH_STATUS.failed && <div> {"error whoopsie"} </div>}
     </>
   );
 }

@@ -1,14 +1,23 @@
 import classes from "./book.module.scss";
 
 export default function Book({ book }) {
-  // Generate title string.
-  let titleText = book.title;
-  const MAX_TITLE_LENGTH = 52;
-  if (titleText.length > MAX_TITLE_LENGTH)
-    titleText = titleText.substring(0, MAX_TITLE_LENGTH - 3) + "...";
+  function createTitleText() {
+    const MAX_TITLE_LENGTH = 52;
+    if (book.title.length > MAX_TITLE_LENGTH)
+      return book.title.substring(0, MAX_TITLE_LENGTH - 3) + "...";
+
+    return book.title;
+  }
+
+  function createAuthorText() {
+    if (book.authors.length > 0) return book.authors.join(", ");
+
+    return "Unknown Authorship";
+  }
 
   // Generate author/s string and description.
-  const authorText = book.authors.join(", ");
+  const titleText = createTitleText();
+  const authorText = createAuthorText();
   const descriptionText = book.description || "No description.";
 
   // Generate image element.

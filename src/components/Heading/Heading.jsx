@@ -1,8 +1,14 @@
+import { useRef } from "react";
 import classes from "./heading.module.scss";
 
-export default function Heading() {
+export default function Heading({ handleSearch }) {
+  const searchInputRef = useRef(null);
   const a = "GOOGLE ";
   const b = "BOOKS";
+
+  const onSearch = () => {
+    handleSearch(searchInputRef.current.value);
+  };
 
   return (
     <header className={classes.background}>
@@ -12,8 +18,8 @@ export default function Heading() {
           <h1 className={`${classes.title} ${classes.title_b}`}>{b}</h1>
         </hgroup>
         <div className={classes.search_group}>
-          <input />
-          <button>Search</button>
+          <input ref={searchInputRef} defaultValue="Skulduggery Pleasant" />
+          <button onClick={onSearch}>Search</button>
         </div>
       </div>
     </header>
