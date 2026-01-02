@@ -36,8 +36,13 @@ function App() {
 
   return (
     <>
-      <Heading handleSearch={handleSearch} />
-      <BookList fetchStatus={fetchStatus} searchResults={searchResults} />
+      <Heading
+        handleSearch={handleSearch}
+        isFullscreen={fetchStatus === FETCH_STATUS.pending}
+      />
+      {fetchStatus !== FETCH_STATUS.pending && (
+        <BookList fetchStatus={fetchStatus} searchResults={searchResults} />
+      )}
     </>
   );
 }
