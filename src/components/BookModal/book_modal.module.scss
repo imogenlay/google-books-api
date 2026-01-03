@@ -1,0 +1,58 @@
+@use "../../sass/global" as g;
+@use "../../sass/media-queries" as q;
+@use "../../sass/mixins";
+
+.book_modal {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+
+  @include mixins.flex(column, center, center, 0);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      90deg,
+      g.$clr-orange-background 0%,
+      g.$clr-white max(8rem, var(--inset)),
+      g.$clr-white calc(100% - max(8rem, var(--inset))),
+      g.$clr-orange-background 100%
+    );
+
+    opacity: 0.75;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.modal_container {
+  width: var(--main-width);
+  height: 90vh;
+
+  @include mixins.flex(row, flex-start, center, 0);
+  @include q.phone {
+    flex-direction: column;
+  }
+}
+
+.book_modal_left {
+  overflow: hidden;
+  border: 1px solid g.$clr-orange-regular;
+  height: 90%;
+  @include q.phone {
+    height: 40%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.book_modal_right {
+  flex: 1;
+}

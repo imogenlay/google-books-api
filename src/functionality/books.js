@@ -16,8 +16,10 @@ export const getBooks = async (searchKeywords) => {
         console.error(await response.text());
         throw new Error("Failed to fetch books.");
     }
+
     const data = await response.json();
     console.log(data);
+
     if (data.items)
         return data.items.map((i) => {
             let imageThumbnail =
@@ -27,10 +29,15 @@ export const getBooks = async (searchKeywords) => {
 
             return {
                 id: i.id,
-                title: i.volumeInfo.title,
+                title: i.volumeInfo.title || "",
                 authors: i.volumeInfo.authors || [],
-                description: i.volumeInfo.description,
+                description: i.volumeInfo.description || "",
+
                 image: imageThumbnail,
+                language: i.volumeInfo.language || "",
+                pageCount: i.volumeInfo.pageCount || "",
+                previewLink: i.volumeInfo.previewLink || "",
+                publishedDate: i.volumeInfo.publishedDate || "",
             };
         });
 
@@ -39,6 +46,19 @@ export const getBooks = async (searchKeywords) => {
         title: "found nothing",
         authors: ["Nobody"],
         description: "nothing was found today",
+
         image: "",
+        language: "",
+        pageCount: "",
+        previewLink: "",
+        publishedDate: "",
     }];
+};
+
+
+export const createAuthorText = (book, isLoading) => {
+    if (isLoading) return "...";
+    if (book.authors.length > 0) return book.authors.join(", ");
+
+    return "Unknown Authorship";
 };

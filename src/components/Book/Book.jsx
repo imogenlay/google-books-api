@@ -1,6 +1,7 @@
+import { createAuthorText } from "../../functionality/books";
 import classes from "./book.module.scss";
 
-export default function Book({ book, isLoading }) {
+export default function Book({ book, isLoading, handleSelectModal }) {
   function createTitleText() {
     if (isLoading) return "...";
 
@@ -9,13 +10,6 @@ export default function Book({ book, isLoading }) {
       return book.title.substring(0, MAX_TITLE_LENGTH - 3) + "...";
 
     return book.title;
-  }
-
-  function createAuthorText() {
-    if (isLoading) return "...";
-    if (book.authors.length > 0) return book.authors.join(", ");
-
-    return "Unknown Authorship";
   }
 
   function createDescriptionText() {
@@ -31,7 +25,10 @@ export default function Book({ book, isLoading }) {
   }
 
   return (
-    <div className={`${classes.main} ${isLoading ? classes.fake : ""}`}>
+    <div
+      className={`${classes.main} ${isLoading ? classes.fake : ""}`}
+      onClick={handleSelectModal}
+    >
       <div className={`${classes.image_area} ${isLoading ? classes.fake : ""}`}>
         {book?.image ? (
           <img src={book.image} />
@@ -41,7 +38,7 @@ export default function Book({ book, isLoading }) {
       </div>
       <p className={classes.title}>{createTitleText()}</p>
       <div className={classes.author}>
-        <p>{createAuthorText()}</p>
+        <p>{createAuthorText(book, isLoading)}</p>
         <hr />
       </div>
       <p className={classes.description}>{createDescriptionText()}</p>

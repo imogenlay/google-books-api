@@ -2,12 +2,16 @@ import Book from "../Book/Book";
 import classes from "./book_list.module.scss";
 import { FETCH_STATUS } from "../../functionality/books";
 
-export default function BookList({ fetchStatus, searchResults }) {
+export default function BookList({
+  fetchStatus,
+  searchResults,
+  handleSelectModal,
+}) {
   if (fetchStatus === FETCH_STATUS.failed) return <div> error whoopsie </div>;
 
   let currentClassName = classes.book_list;
   if (fetchStatus === FETCH_STATUS.loading)
-    currentClassName = currentClassName + " " + classes.loading;
+    currentClassName += " " + classes.loading;
 
   return (
     <div className={currentClassName}>
@@ -24,7 +28,14 @@ export default function BookList({ fetchStatus, searchResults }) {
       {fetchStatus === FETCH_STATUS.fulfilled &&
         searchResults.map((b) => {
           const { id, ...book } = b;
-          return <Book key={b.id} book={book} isLoading={false} />;
+          return (
+            <Book
+              key={id}
+              book={book}
+              isLoading={false}
+              handleSelectModal={() => handleSelectModal(id)}
+            />
+          );
         })}
     </div>
   );
