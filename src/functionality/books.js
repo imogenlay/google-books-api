@@ -9,8 +9,7 @@ export const FETCH_STATUS = Object.freeze({
 export const getBooks = async (searchKeywords) => {
     const keywords = searchKeywords.split(" ").filter(Boolean).join("+");
     const response = await fetch("https://www.googleapis.com/books/v1/volumes?q=" + keywords +
-        "&maxResults=24" + // Will produce an even count for 2 per row, 4 per row, 6 per row.
-        // Doesn't seem to return anything over 20 for some reason.
+        "&maxResults=18" +
         "&startIndex=" + 0);
 
     if (!response.ok) {
@@ -23,7 +22,8 @@ export const getBooks = async (searchKeywords) => {
         return data.items.map((i) => {
             let imageThumbnail =
                 i.volumeInfo.imageLinks?.smallThumbnail ||
-                i.volumeInfo.imageLinks?.thumbnail || "";
+                i.volumeInfo.imageLinks?.thumbnail ||
+                "";
 
             return {
                 id: i.id,

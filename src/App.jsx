@@ -9,13 +9,6 @@ function App() {
   const [fetchStatus, setFetchStatus] = useState(FETCH_STATUS.pending);
   const [searchKeywords, setSearchKeywords] = useState("");
 
-  const handleSearch = (newKeywords) => {
-    if (newKeywords.lenth < 2) return;
-
-    setSearchKeywords(newKeywords);
-    console.log(newKeywords);
-  };
-
   useEffect(() => {
     if (searchKeywords.length === 0) {
       setFetchStatus(FETCH_STATUS.pending);
@@ -33,6 +26,12 @@ function App() {
         setFetchStatus(FETCH_STATUS.failed);
       });
   }, [searchKeywords]);
+
+  const handleSearch = (newKeywords) => {
+    if (newKeywords.lenth < 2) return;
+
+    setSearchKeywords(newKeywords);
+  };
 
   return (
     <>
