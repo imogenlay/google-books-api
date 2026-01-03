@@ -55,10 +55,9 @@ export const getBooks = async (searchKeywords) => {
     }];
 };
 
-
 export const createAuthorText = (book, isLoading) => {
     if (isLoading) return "...";
-    if (book.authors.length > 0) return book.authors.join(", ");
+    if (book?.authors?.length > 0) return book.authors.join(", ");
 
     return "Unknown Authorship";
 };

@@ -52,3 +52,7 @@ body,
   --main-width: min(95vw, 80rem);
   --inset: calc((100vw - var(--main-width)) * 0.5);
 }
+
+hr {
+  border: 1px solid g.$clr-blue-light;
+}

@@ -12,10 +12,18 @@ export default function BookModal({ book, disableModal }) {
         )}
 
         <div className={classes.book_modal_right}>
-          <p>{book.title}</p>
-          <p>{createAuthorText(book, false)}</p>
+          <h1>{book.title}</h1>
+          <h2>{createAuthorText(book, false)}</h2>
+          <hr />
+          <p>{book.description}</p>
+          <hr />
+          <p>Language: {book.language}</p>
+          <p>Date Published: {book.publishedDate}</p>
+          <p>Page Count: {book.pageCount}</p>
+          <a href={book.previewLink}>Preview Link </a>
+          <hr />
+          <button onClick={disableModal}>Exit</button>
         </div>
-        <button onClick={disableModal}>Back</button>
       </div>
     </section>
   );

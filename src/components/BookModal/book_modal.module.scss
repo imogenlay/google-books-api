@@ -22,7 +22,7 @@
       g.$clr-orange-background 100%
     );
 
-    opacity: 0.75;
+    opacity: 0.9;
     pointer-events: none;
     z-index: -1;
   }
@@ -32,7 +32,7 @@
   width: var(--main-width);
   height: 90vh;
 
-  @include mixins.flex(row, flex-start, center, 0);
+  @include mixins.flex(row, flex-start, center, 2rem);
   @include q.phone {
     flex-direction: column;
   }
