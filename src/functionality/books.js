@@ -27,9 +27,6 @@ export const getBooks = async (searchKeywords) => {
                 item.volumeInfo.imageLinks?.thumbnail ||
                 "";
 
-            if (i === 2)
-                imageThumbnail = "";
-
             return {
                 id: item.id,
                 title: item.volumeInfo.title || "",
