@@ -43,7 +43,6 @@ function App() {
     const newModal = searchResults.find((r) => r.id === id);
     if (newModal) {
       setCurrentModal(newModal);
-      console.log(newModal);
     }
   };
 

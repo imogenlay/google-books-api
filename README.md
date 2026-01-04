@@ -22,9 +22,9 @@ The page contains a few elements:
 - The grid is responsive on different screen sizes
 - When no book results can be found for the query, feedback to the user is provided
 - Modules for styling with SCSS features
+- Clicking on one of the books in the grid will display a modal.
 
 ## To Do
 
-- Parametrized and abstracted large pieces of duplicate code
 - When a user clicks a book in the grid, a modal should appear with more book information, think about release, publish date, country, languages, etc.
 - Pagination
