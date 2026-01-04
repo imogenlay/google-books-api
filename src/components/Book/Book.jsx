@@ -26,7 +26,7 @@ export default function Book({ book, isLoading, handleSelectModal }) {
 
   return (
     <div
-      className={`${classes.main} ${isLoading ? classes.fake : ""}`}
+      className={`${classes.book_parent} ${isLoading ? classes.fake : ""}`}
       onClick={handleSelectModal}
     >
       <div className={`${classes.image_area} ${isLoading ? classes.fake : ""}`}>

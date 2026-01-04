@@ -2,7 +2,7 @@
 @use "../../sass/media-queries" as q;
 @use "../../sass/mixins";
 
-.main {
+.book_parent {
   @include mixins.flex(column, flex-start, flex-start, 0.5rem);
   aspect-ratio: 1 / 3;
 

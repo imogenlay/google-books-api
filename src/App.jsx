@@ -51,7 +51,7 @@ function App() {
     setCurrentModal(null);
   };
 
-  const displayBookList = fetchStatus !== FETCH_STATUS.pending;
+  const displayMain = fetchStatus !== FETCH_STATUS.pending;
   const displayModal =
     fetchStatus === FETCH_STATUS.fulfilled && currentModal !== null;
 
@@ -61,20 +61,22 @@ function App() {
         handleSearch={handleSearch}
         isFullscreen={fetchStatus === FETCH_STATUS.pending}
       />
-      <main
-        className={`${classes.main} ${displayModal ? classes.main_modal : ""}`}
-      >
-        {displayBookList && (
+      {displayMain && (
+        <main
+          className={`${classes.main} ${
+            displayModal ? classes.main_modal : ""
+          }`}
+        >
           <BookList
             fetchStatus={fetchStatus}
             searchResults={searchResults}
             handleSelectModal={handleSelectModal}
           />
-        )}
-        {displayModal && (
-          <BookModal book={currentModal} disableModal={disableModal} />
-        )}
-      </main>
+          {displayModal && (
+            <BookModal book={currentModal} disableModal={disableModal} />
+          )}
+        </main>
+      )}
     </>
   );
 }

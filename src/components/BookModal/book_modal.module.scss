@@ -6,44 +6,65 @@
   position: absolute;
   inset: 0;
   z-index: 10;
+  overflow: hidden;
 
   @include mixins.flex(column, center, center, 0);
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+.background {
+  position: absolute;
+  inset: 0;
+  filter: brightness(0.6);
 
-    background: linear-gradient(
-      90deg,
-      g.$clr-orange-background 0%,
-      g.$clr-white max(8rem, var(--inset)),
-      g.$clr-white calc(100% - max(8rem, var(--inset))),
-      g.$clr-orange-background 100%
-    );
+  background: linear-gradient(
+    90deg,
+    g.$clr-orange-background 0%,
+    g.$clr-white max(8rem, var(--inset)),
+    g.$clr-white calc(100% - max(8rem, var(--inset))),
+    g.$clr-orange-background 100%
+  );
 
-    opacity: 0.9;
-    pointer-events: none;
-    z-index: -1;
-  }
+  pointer-events: none;
+  z-index: -1;
 }
 
 .modal_container {
+  @include mixins.flex(column, flex-start, center, 1rem);
+  padding: 1rem;
   width: var(--main-width);
-  height: 90vh;
+  height: calc(100% - var(--modal-inset));
+  overflow: hidden;
 
-  @include mixins.flex(row, flex-start, center, 2rem);
-  @include q.phone {
-    flex-direction: column;
+  --modal-inset: 1rem;
+
+  @include q.tablet {
+    --modal-inset: 3rem;
   }
+
+  @include q.desktop {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    --modal-inset: 5rem;
+  }
+}
+
+.book_modal_left,
+.book_modal_right {
+  background-color: g.$clr-blue-transparent;
+  padding: 1rem;
 }
 
 .book_modal_left {
   overflow: hidden;
-  border: 1px solid g.$clr-orange-regular;
-  height: 90%;
+  height: calc(100% - 1rem);
+
+  @include q.tablet {
+    max-height: 50%;
+  }
+
   @include q.phone {
-    height: 40%;
+    max-height: 50%;
   }
 
   img {
@@ -55,4 +76,78 @@
 
 .book_modal_right {
   flex: 1;
+  max-height: 100%;
+
+  p,
+  a,
+  b {
+    color: g.$clr-white;
+  }
+
+  a {
+    cursor: pointer;
+    color: g.$clr-orange-background;
+
+    &:hover {
+      color: g.$clr-orange-regular;
+    }
+  }
+
+  hr {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    border-color: g.$clr-blue-faint;
+  }
+}
+
+.modal_title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 400;
+  color: g.$clr-white;
+}
+
+.modal_author {
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  color: g.$clr-blue-light;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+
+  b {
+    font-weight: 400;
+  }
+}
+
+.back {
+  position: absolute;
+  width: 4rem;
+  height: 3rem;
+
+  color: g.$clr-white;
+  font-weight: 400;
+  background: g.$clr-blue-transparent;
+  border: 2px solid g.$clr-white;
+
+  &:hover {
+    border-color: g.$clr-blue-light;
+  }
+
+  &:active {
+    background-color: g.$clr-blue-faint;
+  }
+
+  --button-inset: 1rem;
+
+  @include q.tablet {
+    --button-inset: 3rem;
+  }
+
+  @include q.desktop {
+    --button-inset: 5rem;
+  }
+
+  top: var(--button-inset);
+  right: var(--button-inset);
 }
