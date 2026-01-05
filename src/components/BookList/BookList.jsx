@@ -1,13 +1,18 @@
 import Book from "../Book/Book";
 import classes from "./book_list.module.scss";
-import { FETCH_STATUS } from "../../functionality/books";
+import { FETCH_STATUS } from "../../services/books";
 
 export default function BookList({
   fetchStatus,
   searchResults,
   handleSelectModal,
 }) {
-  if (fetchStatus === FETCH_STATUS.failed) return <div> error whoopsie </div>;
+  if (fetchStatus === FETCH_STATUS.failed)
+    return (
+      <div className={classes.error}>
+        An error occured and was unable to fetch books.
+      </div>
+    );
 
   let currentClassName = classes.book_list;
   if (fetchStatus === FETCH_STATUS.loading)

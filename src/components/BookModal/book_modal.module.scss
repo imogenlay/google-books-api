@@ -138,14 +138,10 @@
     background-color: g.$clr-blue-faint;
   }
 
-  --button-inset: 1rem;
+  --button-inset: 2rem;
 
-  @include q.tablet {
-    --button-inset: 3rem;
-  }
-
-  @include q.desktop {
-    --button-inset: 5rem;
+  @include q.phone {
+    --button-inset: 1rem;
   }
 
   top: var(--button-inset);

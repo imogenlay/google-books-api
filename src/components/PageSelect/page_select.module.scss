@@ -1,0 +1,31 @@
+@use "../../sass/global" as g;
+@use "../../sass/media-queries" as q;
+@use "../../sass/mixins";
+
+.page_select {
+  padding-bottom: 1rem;
+  @include mixins.flex(row, flex-start, flex-start, 0.5rem);
+  padding: 0.5rem;
+
+  button {
+    border: 2px solid g.$clr-orange-regular;
+    background-color: g.$clr-white;
+
+    padding: 4px;
+    width: 3rem;
+
+    &:hover {
+      border-color: g.$clr-orange-blaze;
+      box-shadow: 0 0 4px g.$clr-orange-blaze;
+    }
+
+    &:active {
+      background-color: g.$clr-orange-background;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      border-color: g.$clr-orange-selection;
+    }
+  }
+}

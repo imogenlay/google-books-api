@@ -2,9 +2,9 @@ import { useRef } from "react";
 import classes from "./heading.module.scss";
 
 export default function Heading({ handleSearch, isFullscreen }) {
-  const searchInputRef = useRef(null);
   const a = "GOOGLE ";
   const b = "BOOKS";
+  const searchInputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();

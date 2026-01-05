@@ -1,4 +1,4 @@
-import { createAuthorText } from "../../functionality/books";
+import { createAuthorText } from "../../services/books";
 import classes from "./book_modal.module.scss";
 
 export default function BookModal({ book, disableModal }) {

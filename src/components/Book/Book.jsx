@@ -1,4 +1,4 @@
-import { createAuthorText } from "../../functionality/books";
+import { createAuthorText } from "../../services/books";
 import classes from "./book.module.scss";
 
 export default function Book({ book, isLoading, handleSelectModal }) {
