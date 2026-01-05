@@ -21,5 +21,5 @@ The page contains a few elements:
 - The grid is responsive on different screen sizes
 - When no book results can be found for the query, feedback to the user is provided
 - Modules for styling with SCSS features
-- Clicking on one of the books in the grid will display a modal with additional information.
-- Page selection.
+- Clicking on one of the books in the grid will display a modal with additional information
+- Page selection
