@@ -13,7 +13,7 @@ export default function PageSelect({ searchPage, goToPage }) {
         Prev
       </button>
 
-      <button className={classes.disabled}> {searchPage}</button>
+      <button className={classes.disabled}> {searchPage + 1}</button>
       <button onClick={() => goToPage(searchPage + 1)}>Next</button>
     </div>
   );
