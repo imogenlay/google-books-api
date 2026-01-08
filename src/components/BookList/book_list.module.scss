@@ -3,11 +3,11 @@
 @use "../../sass/mixins";
 
 .book_list {
-  @include mixins.flex(row, flex-start, flex-start, 0.5rem 0);
+  @include mixins.flex(row, flex-start, flex-start, 1.5rem 0);
   flex-wrap: wrap;
   width: var(--main-width);
 
-  padding-top: 2rem;
+  padding: 2rem 0;
   overflow: visible;
 
   &.loading {
